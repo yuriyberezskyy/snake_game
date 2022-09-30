@@ -52,6 +52,21 @@ tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)"
 tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "cloudpickle"]
 
 [[package]]
+name = "automat"
+version = "20.2.0"
+description = "Self-service finite-state machines for the programmer on the go."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+attrs = ">=19.2.0"
+six = "*"
+
+[package.extras]
+visualize = ["graphviz (>0.5.1)", "Twisted (>=16.1.1)"]
+
+[[package]]
 name = "certifi"
 version = "2022.9.24"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -90,6 +105,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "constantly"
+version = "15.1.0"
+description = "Symbolic constants in Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "debugpy"
 version = "1.6.3"
 description = "An implementation of the Debug Adapter Protocol for Python"
@@ -125,6 +148,17 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "hyperlink"
+version = "21.0.0"
+description = "A featureful, immutable, and correct URL for Python."
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.dependencies]
+idna = ">=2.5"
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -147,6 +181,17 @@ zipp = ">=0.5"
 docs = ["sphinx", "jaraco.packaging (>=9)", "rst.linker (>=1.9)"]
 perf = ["ipython"]
 testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-cov", "pytest-enabler (>=1.3)", "packaging", "pyfakefs", "flufl.flake8", "pytest-perf (>=0.9.2)", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)", "importlib-resources (>=1.3)"]
+
+[[package]]
+name = "incremental"
+version = "21.3.0"
+description = "A small library that versions your Python projects."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+scripts = ["click (>=6.0)", "twisted (>=16.4.0)"]
 
 [[package]]
 name = "itsdangerous"
@@ -296,6 +341,14 @@ gen_docs = ["pytoolconfig", "sphinx-rtd-theme (>=1.0.0)", "sphinx-autodoc-typehi
 doc = ["sphinx (>=4.5.0)", "tabulate (>=0.8.9)"]
 
 [[package]]
+name = "pyyaml"
+version = "6.0"
+description = "YAML parser and emitter for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "replit"
 version = "3.2.4"
 description = "A library for interacting with features of repl.it"
@@ -377,6 +430,14 @@ doc = ["sphinx-rtd-theme (>=1.0.0)", "sphinx-autodoc-typehints (>=1.18.1)", "sph
 dev = ["build (>=0.7.0)", "pytest-timeout (>=2.1.0)", "pytest (>=7.0.1)"]
 
 [[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -391,6 +452,61 @@ description = "A lil' TOML parser"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "turtle"
+version = "0.0.2"
+description = "Turtle is an HTTP proxy whose purpose is to throttle connections to\nspecific hostnames to avoid breaking terms of usage of those API\nproviders (like del.icio.us, technorati and so on)."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+PyYAML = ">=3.0.8"
+Twisted = ">=8.0.1"
+
+[[package]]
+name = "twisted"
+version = "22.8.0"
+description = "An asynchronous networking framework written in Python"
+category = "main"
+optional = false
+python-versions = ">=3.7.1"
+
+[package.dependencies]
+attrs = ">=19.2.0"
+Automat = ">=0.8.0"
+constantly = ">=15.1"
+hyperlink = ">=17.1.1"
+incremental = ">=21.3.0"
+twisted-iocpsupport = {version = ">=1.0.2,<2", markers = "platform_system == \"Windows\""}
+typing-extensions = ">=3.6.5"
+"zope.interface" = ">=4.4.2"
+
+[package.extras]
+all_non_platform = ["cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pywin32 (!=226)", "contextvars (>=2.4,<3)"]
+conch = ["pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)"]
+conch_nacl = ["pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pynacl"]
+contextvars = ["contextvars (>=2.4,<3)"]
+dev = ["towncrier (>=19.2,<20.0)", "pydoctor (>=22.7.0,<22.8.0)", "sphinx-rtd-theme (>=0.5,<1.0)", "readthedocs-sphinx-ext (>=2.1,<3.0)", "sphinx (>=4.1.2,<6)", "pyflakes (>=2.2,<3.0)", "twistedchecker (>=0.7,<1.0)", "coverage (>=6b1,<7)", "python-subunit (>=1.4,<2.0)"]
+dev_release = ["towncrier (>=19.2,<20.0)", "pydoctor (>=22.7.0,<22.8.0)", "sphinx-rtd-theme (>=0.5,<1.0)", "readthedocs-sphinx-ext (>=2.1,<3.0)", "sphinx (>=4.1.2,<6)"]
+gtk_platform = ["pygobject", "cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pywin32 (!=226)", "contextvars (>=2.4,<3)"]
+http2 = ["h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)"]
+macos_platform = ["pyobjc-core", "pyobjc-framework-cfnetwork", "pyobjc-framework-cocoa", "cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pywin32 (!=226)", "contextvars (>=2.4,<3)"]
+mypy = ["mypy (==0.930)", "mypy-zope (==0.3.4)", "types-setuptools", "types-pyopenssl", "towncrier (>=19.2,<20.0)", "pydoctor (>=22.7.0,<22.8.0)", "sphinx-rtd-theme (>=0.5,<1.0)", "readthedocs-sphinx-ext (>=2.1,<3.0)", "sphinx (>=4.1.2,<6)", "pyflakes (>=2.2,<3.0)", "twistedchecker (>=0.7,<1.0)", "coverage (>=6b1,<7)", "cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pynacl", "pywin32 (!=226)", "python-subunit (>=1.4,<2.0)", "contextvars (>=2.4,<3)"]
+osx_platform = ["pyobjc-core", "pyobjc-framework-cfnetwork", "pyobjc-framework-cocoa", "cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pywin32 (!=226)", "contextvars (>=2.4,<3)"]
+serial = ["pyserial (>=3.0)", "pywin32 (!=226)"]
+test = ["cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)"]
+tls = ["pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)"]
+windows_platform = ["pywin32 (!=226)", "cython-test-exception-raiser (>=1.0.2,<2)", "PyHamcrest (>=1.9.0)", "pyopenssl (>=21.0.0)", "service-identity (>=18.1.0)", "idna (>=2.4)", "pyasn1", "cryptography (>=2.6)", "appdirs (>=1.4.0)", "bcrypt (>=3.0.0)", "pyserial (>=3.0)", "h2 (>=3.0,<5.0)", "priority (>=1.1.0,<2.0)", "pywin32 (!=226)", "contextvars (>=2.4,<3)"]
+
+[[package]]
+name = "twisted-iocpsupport"
+version = "1.0.2"
+description = "An extension for use in the twisted I/O Completion Ports reactor."
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "typing-extensions"
@@ -475,25 +591,42 @@ python-versions = ">=3.7"
 docs = ["sphinx", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "jaraco.tidelift (>=1.4)"]
 testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-cov", "pytest-enabler (>=1.3)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)"]
 
+[[package]]
+name = "zope.interface"
+version = "5.4.0"
+description = "Interfaces for Python"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.extras]
+docs = ["sphinx", "repoze.sphinx.autointerface"]
+test = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
+testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
+
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "5f05815c681dbbfc8aefcc8abcab34370edfe67d7ba6113d662b0f8a96b05294"
+content-hash = "84709872be033f1c1610d87cbfe98839200a5c7747e2892af1d59a20bcab228e"
 
 [metadata.files]
 aiohttp = []
 aiosignal = []
 async-timeout = []
 attrs = []
+automat = []
 certifi = []
 charset-normalizer = []
 click = []
 colorama = []
+constantly = []
 debugpy = []
 flask = []
 frozenlist = []
+hyperlink = []
 idna = []
 importlib-metadata = []
+incremental = []
 itsdangerous = []
 jedi = []
 jinja2 = []
@@ -507,12 +640,17 @@ pyflakes = []
 pyparsing = []
 python-lsp-jsonrpc = []
 pytoolconfig = []
+pyyaml = []
 replit = []
 replit-python-lsp-server = []
 requests = []
 rope = []
+six = []
 toml = []
 tomli = []
+turtle = []
+twisted = []
+twisted-iocpsupport = []
 typing-extensions = []
 ujson = []
 urllib3 = []
@@ -521,3 +659,4 @@ whatthepatch = []
 yapf = []
 yarl = []
 zipp = []
+"zope.interface" = []
